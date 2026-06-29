@@ -29,7 +29,7 @@ export default function Contact() {
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold">Contact</h2>
           <p className="mt-3 text-gray-400">
-            Feel free to reach out through any of the platforms below.
+            Feel free to reach out through any of the platforms below.ssss
           </p>
         </div>
 
