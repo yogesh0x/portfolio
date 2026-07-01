@@ -4,58 +4,49 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="flex min-h-screen items-center justify-center px-6 pt-16"
+      className="mx-auto flex min-h-screen max-w-7xl items-center px-6 pt-20"
     >
-      <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
+      <div className="grid w-full items-center gap-16 lg:grid-cols-2">
 
-        {/* Profile Image */}
-        <div className="relative mb-8 h-44 w-44 overflow-hidden rounded-full border-4 border-cyan-400">
-          <Image
-            src="/profile.png"
-            alt="Yogesh Kumar"
-            fill
-            priority
-            className="object-cover"
-          />
+        {/* Left Content */}
+        <div>
+
+          <p className="mb-4 text-cyan-400">
+            Hello, I'm
+          </p>
+
+          <h1 className="text-5xl font-extrabold leading-tight md:text-7xl">
+            Yogesh Kumar
+          </h1>
+
+          <h2 className="mt-6 text-xl font-medium text-gray-300 md:text-2xl">
+            Bug Bounty Hunter | Cyber Security Researcher
+          </h2>
+
+          <p className="mt-8 max-w-xl leading-8 text-gray-400">
+            Passionate about identifying real-world security
+            vulnerabilities, responsible disclosure, and helping
+            organizations improve their security through ethical
+            hacking and continuous research.
+          </p>
+
         </div>
 
-        {/* Name */}
-        <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
-          Yogesh Kumar
-        </h1>
+        {/* Right Image */}
 
-        {/* Role */}
-        <p className="mt-4 text-lg font-medium text-cyan-400 md:text-xl">
-          Bug Bounty Hunter | Cyber Security Researcher
-        </p>
+        <div className="flex justify-center">
 
-        {/* About */}
-        <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 md:text-lg">
-          Passionate about discovering real-world security vulnerabilities,
-          practicing responsible disclosure, and helping organizations improve
-          their security posture through ethical hacking and continuous research.
-        </p>
+          <div className="relative h-[320px] w-[320px] overflow-hidden rounded-full border border-white/10">
 
-        {/* Profile Buttons */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Image
+              src="/profile.png"
+              alt="Yogesh Kumar"
+              fill
+              priority
+              className="object-cover"
+            />
 
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-cyan-400 px-6 py-3 transition hover:bg-cyan-400 hover:text-black"
-          >
-            HackerOne
-          </a>
-
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-cyan-400 px-6 py-3 transition hover:bg-cyan-400 hover:text-black"
-          >
-            Intigriti
-          </a>
+          </div>
 
         </div>
 

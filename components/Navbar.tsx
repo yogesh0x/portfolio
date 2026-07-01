@@ -1,75 +1,136 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "Writeups", href: "#writeups" },
-  { name: "Hall of Fame", href: "#hof" },
-  { name: "Services", href: "#services" },
-  { name: "Resume", href: "#resume" },
-  { name: "Contact", href: "#contact" },
+  { label: "Home", href: "#home" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  {
+    label: "Write-ups",
+    href: "#write-ups",
+    external: true,
+  },
+  { label: "Services", href: "#services" },
+  { label: "Resume", href: "#resume" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("#home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+
+      const sections = navItems.map((item) =>
+        document.querySelector(item.href)
+      );
+
+      sections.forEach((section, index) => {
+        if (!section) return;
+
+        const top = (section as HTMLElement).offsetTop - 120;
+        const height = (section as HTMLElement).offsetHeight;
+
+        if (
+          window.scrollY >= top &&
+          window.scrollY < top + height
+        ) {
+          setActive(navItems[index].href);
+        }
+      });
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+    <>
+      <header
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "border-b border-white/10 bg-black/70 backdrop-blur-xl"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        {/* Logo */}
-        <Link
-          href="#home"
-          className="text-xl font-bold tracking-wide text-white"
-        >
-          Yogesh Kumar
-        </Link>
+          {/* Logo */}
 
-        {/* Desktop Navigation */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <li key={item.name}>
+          <Link
+            href="#home"
+            className="text-2xl font-bold tracking-wide"
+          >
+            YK
+          </Link>
+
+          {/* Desktop */}
+
+          <nav className="hidden items-center gap-10 md:flex">
+            {navItems.map((item) => (
               <Link
+                key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-gray-300 transition-colors duration-200 hover:text-cyan-400"
+                className={`relative text-sm transition ${
+                  active === item.href
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                }`}
               >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                {item.label}
 
-        {/* Mobile Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white md:hidden"
-          aria-label="Toggle navigation"
-        >
-          {menuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
-      </nav>
+                <span
+                  className={`absolute -bottom-2 left-0 h-[2px] bg-cyan-400 transition-all duration-300 ${
+                    active === item.href
+                      ? "w-full"
+                      : "w-0"
+                  }`}
+                />
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Button */}
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden"
+          >
+            {open ? <X size={30} /> : <Menu size={30} />}
+          </button>
+        </div>
+      </header>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="border-t border-white/10 bg-black/95 md:hidden">
-          <ul className="flex flex-col py-4">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block px-6 py-3 text-gray-300 transition hover:bg-white/5 hover:text-cyan-400"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </header>
+
+      <div
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-black transition-all duration-500 ${
+          open
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
+        } md:hidden`}
+      >
+        {navItems.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            onClick={() => setOpen(false)}
+            className="text-3xl font-semibold text-white"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
