@@ -1,16 +1,22 @@
-export const profile = {
-  name: "Yogesh Kumar",
-
-  title: "Bug Bounty Hunter | Cybersecurity Researcher",
-
-  subtitle: "",
-
-  description:
-    "I find and responsibly disclose web application vulnerabilities, build security automation tools, and continuously improve my offensive security skills.",
-
-  profiles: {
-    hackerone: "https://hackerone.com/mr_yogii",
-    intigriti: "https://app.intigriti.com/profile/mr_yogii",
-    github: "https://github.com/yogesh0x",
+export const profiles = [
+  {
+    name: "HackerOne",
+    url: "https://hackerone.com/your_username",
+    preview: "/profiles/hackerone.webp",
   },
-};
+  {
+    name: "Intigriti",
+    url: "https://app.intigriti.com/profile/your_username",
+    preview: "/profiles/intigriti.webp",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/your_username",
+    preview: "/profiles/github.webp",
+  },
+  {
+    name: "Medium",
+    url: "https://medium.com/@your_username",
+    preview: "/profiles/medium.webp",
+  },
+];

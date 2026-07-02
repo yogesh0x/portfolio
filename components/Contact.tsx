@@ -1,3 +1,13 @@
+import Link from "next/link";
+import {
+  FiMail,
+  FiPhone,
+} from "react-icons/fi";
+
+import { FaWhatsapp } from "react-icons/fa";
+
+
+
 export default function Contact() {
   return (
     <section
@@ -64,43 +74,47 @@ export default function Contact() {
         <div className="space-y-10">
 
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">
-              Email
+            <p className="mb-2 text-sm uppercase tracking-[0.2em] text-zinc-500">
+             Email
             </p>
 
             <a
               href="mailto:yogeshkumar.ax@gmail.com"
-              className="mt-2 inline-block text-lg transition hover:text-cyan-400"
+              className="inline-flex items-center gap-3 text-lg transition hover:text-cyan-400"
             >
+              <FiMail size={20} className="text-red-500" />
               yogeshkumar.ax@gmail.com
             </a>
           </div>
 
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">
+            <p className="mb-2 text-sm uppercase tracking-[0.2em] text-zinc-500">
               Phone
-            </p>
+           </p>
 
             <a
-              href="tel:+91XXXXXXXXXX"
-              className="mt-2 inline-block text-lg transition hover:text-cyan-400"
+              href="tel:+919926375741"
+              className="inline-flex items-center gap-3 text-lg transition hover:text-cyan-400"
             >
-              +91 XXXXX XXXXX
+              <FiPhone size={20} className="text-red-500" />
+              +91 9926375741
             </a>
           </div>
 
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">
+            <p className="mb-2 text-sm uppercase tracking-[0.2em] text-zinc-500">
               WhatsApp
             </p>
 
             <a
-              href="https://wa.me/91XXXXXXXXXX"
+              href="https://wa.me/919926375741"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-block text-lg transition hover:text-cyan-400"
+              className="inline-flex items-center gap-3 text-lg transition hover:text-cyan-400"
             >
-              +91 XXXXX XXXXX
+              <FaWhatsapp size={20} className="text-green-500"/>
+
+              +91 9926375741
             </a>
           </div>
 
