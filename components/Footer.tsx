@@ -1,25 +1,28 @@
 import Link from "next/link";
+
 import {
   FaGithub,
   FaLinkedin,
   FaDiscord,
 } from "react-icons/fa";
+
 import { FaXTwitter } from "react-icons/fa6";
+
 
 const socials = [
   {
     name: "GitHub",
-    href: "https://github.com/YOUR_USERNAME",
+    href: "https://github.com/yogesh0x",
     icon: FaGithub,
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/YOUR_USERNAME",
+    href: "https://linkedin.com/in/mr-yogii",
     icon: FaLinkedin,
   },
   {
     name: "X",
-    href: "https://x.com/YOUR_USERNAME",
+    href: "https://x.com/MR_Y0Gii",
     icon: FaXTwitter,
   },
   {
@@ -29,24 +32,33 @@ const socials = [
   },
 ];
 
+
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-zinc-800">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="border-t border-zinc-800/80 bg-zinc-950/20">
+
+      <div className="mx-auto max-w-7xl px-6 py-9">
+
+        {/* Identity */}
 
         <div className="text-center">
 
-          <h3 className="text-2xl font-bold">
+          <h3 className="text-xl font-bold text-zinc-100">
             Yogesh Kumar
           </h3>
 
-          <p className="mt-2 text-zinc-400">
-            Bug Bounty Hunter • Cyber Security Researcher
+          <p className="mt-2 text-sm text-zinc-400">
+            Bug Bounty Hunter
+            <span className="mx-2 text-zinc-600">•</span>
+            Cyber Security Researcher
           </p>
 
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
+
+        {/* Social Links */}
+
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
 
           {socials.map((social) => {
             const Icon = social.icon;
@@ -57,31 +69,50 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-zinc-400 transition hover:text-cyan-400"
+                aria-label={social.name}
+                className="
+                  group
+                  flex
+                  items-center
+                  gap-2
+                  text-zinc-400
+                  transition-colors
+                  duration-300
+                  hover:text-cyan-400
+                "
               >
                 <Icon
-                  size={20}
-                  className="transition group-hover:scale-110"
+                  size={18}
+                  className="
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-0.5
+                  "
                 />
 
                 <span className="text-sm font-medium">
                   {social.name}
                 </span>
+
               </Link>
             );
           })}
 
         </div>
 
-        <div className="mt-10 border-t border-zinc-800 pt-6 text-center">
 
-          <p className="text-sm text-zinc-500">
-            © {new Date().getFullYear()} Yogesh Kumar. All rights reserved. {/*© 2026 Yogesh Kumar • Built with Next.js, React & Tailwind CSS*/}
+        {/* Copyright */}
+
+        <div className="mt-8 border-t border-zinc-800/70 pt-5 text-center">
+
+          <p className="text-xs text-zinc-600">
+            © {new Date().getFullYear()} Yogesh Kumar. All rights reserved.
           </p>
-        </div> 
-        
+
+        </div>
 
       </div>
+
     </footer>
   );
 }
