@@ -1,12 +1,12 @@
 export const writeups = [
   {
     id: 1,
-    title: "Finding an IDOR Through Business Logic",
+    title: "A story of Self-XSS to 2 steps Reflected XSS",
     description:
       "A walkthrough of identifying and exploiting an insecure direct object reference during responsible disclosure.",
     image: "/writeups/idor.jpg",
     date: "Jul 2026",
-    href: "/writeups/finding-an-idor",
+    href: "https://medium.com/@mr_yogii/a-story-of-self-xss-to-2-steps-reflected-xss-401c26436519?source=user_profile_page---------0-------------85ad023c0086-------------------------",
   },
   {
     id: 2,
