@@ -39,7 +39,7 @@ export const profiles = [
   {
     name: "Medium",
     icon: SiMedium,
-    url: "https://medium.com/@mr-yogii",
+    url: "https://medium.com/@mr_yogii",
     subtitle: "Security Research & Write-ups",
     description:
       "Technical articles and practical notes from bug bounty hunting, security research, and penetration testing.",
