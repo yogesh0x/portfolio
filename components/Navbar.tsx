@@ -27,7 +27,7 @@ const navItems = [
   },
   {
     label: "Write-ups",
-    href: "YOUR_MEDIUM_URL",
+    href: "https://medium.com/@mr_yogii",
     external: true,
   },
   {
