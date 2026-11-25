@@ -1,10 +1,10 @@
 const items = [
-  "Bug Bounty Researcher",
+  "Bug Bounty Hunter",
   "Web Application Security",
   "API Security",
   "Penetration Testing",
   "Vulnerability Assessment",
-  "Security Automation",
+  "Security Researcher",
 ];
 
 export default function SecurityMarquee() {
