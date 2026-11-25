@@ -1,5 +1,5 @@
 const items = [
-  "Bug Bounty Research",
+  "Bug Bounty Researcher",
   "Web Application Security",
   "API Security",
   "Penetration Testing",
